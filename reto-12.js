@@ -4,4 +4,5 @@ const fruits = [
     { id: 3, name: 'Pineapple', quantity: 4 },
   ];
   
-  const count = fruits.some((fruit) => fruit.quantity > 5);
+  const count = fruits.some((fruit) => fruit.quantity > 4);
+  console.log(count);
