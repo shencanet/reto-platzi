@@ -1,0 +1,1 @@
+console.log(undefined || '0' || null || (undefined ?? 0));
