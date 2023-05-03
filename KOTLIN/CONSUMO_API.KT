@@ -21,3 +21,7 @@ val retrofit = Retrofit.Builder()
             // Maneja el error aquí
         }
     })
+
+    //la tasa de cambio entre el dólar estadounidense (USD) y el euro (EUR), puedes hacer una solicitud GET a la siguiente URL:
+    
+    https://api.exchangeratesapi.io/latest?base=USD&symbols=EUR
