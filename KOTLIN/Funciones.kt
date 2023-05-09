@@ -4,6 +4,10 @@ class  Persona(nombre: String, apellidos: String) {
     var apellidos: String = ""
     var edad: Int = 20
     var localidad: String = "Madrid"
+    get() = "localidad" +  $field 
+    set(value) {
+        field = if (value == "Madrid") "Madrid" else "Barcelona"
+    }
 
 
 
@@ -26,5 +30,5 @@ fun main(){
     var otraPersona = Persona("Ricardo", "Alfonso")
     println(yo.getNombreCompleto())
     println(otraPersona.getNombreCompleto())
-    
+
 }
