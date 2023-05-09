@@ -1,5 +1,7 @@
 
 
+import kotlin.collections.mutableMapOf
+
 fun  main(){ 
     val numeros = arrayOf("1","2","3","4")
     for (numero in numeros){
@@ -32,5 +34,21 @@ fun  main(){
     numero2.forEach{
         println(it + " ")
     }
+
+    val numeros4: MutableMap<String, Int> = mutableMapOf("Uno" to 1, "Dos" to 2, "Tres" to 3)
+    numeros4.put("Cuatro", 4)
+    numeros4["Uno"] = 11
+
+    
+    val numeros5: MutableMap<String, Int> = mutableMapOf(
+        Pair("Uno", 1),
+        Pair("Dos", 2),
+        Pair("Tres", 3)
+    )
+    
+    for ((clave, valor) in numeros5) {
+        println("$clave: $valor")
+    }
+
 
 }
