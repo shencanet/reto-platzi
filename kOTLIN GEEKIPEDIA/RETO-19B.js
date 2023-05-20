@@ -8,7 +8,8 @@ La función se encarga de verificar si un arreglo esta vacío o no, para ello ha
 
 Primero, corroboramos que el parámetro arr sea un arreglo, la manera más eficiente de hacerlo es usando el método isArray del objeto Array el cual regresa true si es un arreglo y false sino lo es.
 
-Segundo, corroboramos que la longitud del arreglo sea 0 y convertimos esa salida a boolean para poder hacer una comparación de boeleanos con el operador de corto circuito &&.
+Segundo, corroboramos que
+ la longitud del arreglo sea 0 y convertimos esa salida a boolean para poder hacer una comparación de boeleanos con el operador de corto circuito &&.
 
 Veamos caso por caso:
 
