@@ -19,4 +19,5 @@ Veamos caso por caso:
 
 [] es un arreglo y si esta vacío. Entonces tendriamos: true && true, que evalua a true.
 
-Conclusión: false false true.*/
+Conclusión: 
+false false true.*/
