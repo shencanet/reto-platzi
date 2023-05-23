@@ -31,4 +31,7 @@ false false true.*/
         j = d.createElement(s),
         dl = l != 'dataLayer' ? '&l=' + l : '';
     j.async = true;
-})(window, document, 'script', 'dataLayer', 'GTM-XXXXXX');
+})(window, document,
+    'script', 
+    'dataLayer', 
+    'GTM-XXXXXX');
