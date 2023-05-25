@@ -11,3 +11,9 @@ fun sumaDigitos(numero: Int): Int {
     
     return suma
 }
+
+fun main() {
+    val numero = 12345
+    val resultado = sumaDigitos(numero)
+    println("La suma de los dígitos de $numero es: $resultado")
+}
