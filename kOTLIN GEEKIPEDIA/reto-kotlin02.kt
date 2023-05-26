@@ -10,3 +10,8 @@ fun esPalindromo(texto: String): Boolean {
     }
     return true
 }
+fun main() {
+    println(esPalindromo("anita lava la tina")) // Debería imprimir true
+    println(esPalindromo("A man, a plan, a canal, Panama!")) // Debería imprimir true
+    println(esPalindromo("hello world")) // Debería imprimir false
+}
