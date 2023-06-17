@@ -21,3 +21,90 @@ El siguiente gráfico de entrada:
  [(0, 0)] 
 
 Debería devolver nulo, ya que tenemos un bucle infinito. */
+
+function findMaxValuePath(graph, edges) {
+    const nodeCount = graph.length;
+    const adjacencyList = buildAdjacencyList(edges);
+    let maxCount = 0;
+    let maxValuePath = null;
+  
+    // Iterar sobre todos los nodos
+    for (let i = 0; i < nodeCount; i++) {
+      const visited = new Set(); // Conjunto para realizar un seguimiento de los nodos visitados
+      const path = [graph[i]]; // Ruta actualmente explorada, comienza con el nodo inicial
+      const count = dfs(i, graph[i], visited, path, adjacencyList);
+  
+      if (count === Infinity) {
+        return null; // Se detectó un bucle infinito, devolver nulo
+      }
+  
+      if (count > maxCount) {
+        maxCount = count;
+        maxValuePath = path.slice(); // Actualizar la ruta de mayor valor encontrada hasta el momento
+      }
+    }
+  
+    return maxValuePath;
+  }
+  
+  function dfs(node, currentChar, visited, path, adjacencyList) {
+    visited.add(node); // Marcar el nodo como visitado
+    let maxCount = 0;
+  
+    for (const neighbor of adjacencyList[node]) {
+      if (!visited.has(neighbor)) { // Si el vecino no ha sido visitado
+        path.push(graph[neighbor]); // Agregar el nodo vecino a la ruta actual
+        const count = dfs(neighbor, graph[neighbor], visited, path, adjacencyList);
+        maxCount = Math.max(maxCount, count); // Actualizar el máximo valor encontrado hasta el momento
+      } else if (path.includes(graph[neighbor])) {
+        return Infinity; // Se detectó un bucle infinito
+      }
+    }
+  
+    visited.delete(node); // Eliminar el nodo actual de los nodos visitados
+    path.pop(); // Eliminar el nodo actual de la ruta actual
+  
+    // Si el nodo actual tiene la misma letra que la letra más frecuente en la ruta actual, incrementar el contador
+    return (currentChar === findMaxChar(path)) ? maxCount + 1 : maxCount;
+  }
+  
+  function findMaxChar(arr) {
+    const charCount = {};
+  
+    for (const char of arr) {
+      charCount[char] = (charCount[char] || 0) + 1;
+    }
+  
+    let maxChar = null;
+    let maxCount = 0;
+  
+    for (const char in charCount) {
+      if (charCount[char] > maxCount) {
+        maxChar = char;
+        maxCount = charCount[char];
+      }
+    }
+  
+    return maxChar;
+  }
+  
+  function buildAdjacencyList(edges) {
+    const adjacencyList = {};
+  
+    for (const [src, dest] of edges) {
+      if (adjacencyList[src] === undefined) {
+        adjacencyList[src] = [];
+      }
+      adjacencyList[src].push(dest);
+    }
+  
+    return adjacencyList;
+  }
+  
+  // Ejemplo de uso
+  const graph = "ABACA";
+  const edges = [[0, 1], [0, 2], [2, 3], [3, 4]];
+  
+  const maxValuePath = findMaxValuePath(graph, edges);
+  console.log("Ruta de mayor valor:", maxValuePath);
+  
