@@ -107,4 +107,9 @@ function findMaxValuePath(graph, edges) {
   
   const maxValuePath = findMaxValuePath(graph, edges);
   console.log("Ruta de mayor valor:", maxValuePath);
-  
+ /* 
+  Esta implementación utiliza una búsqueda en profundidad (DFS) para recorrer todas las rutas posibles en el gráfico. En cada ruta, se cuenta el número de ocurrencias de la letra más frecuente y se actualiza el máximo valor encontrado hasta el momento. Si se detecta un bucle infinito, se devuelve null.
+
+Ten en cuenta que esta solución asume que los nodos se numeran de forma consecutiva desde 0 hasta n-1. Además, puede haber varias rutas con el mismo valor máximo, y la implementación devuelve la primera ruta encontrada con ese valor.
+
+Puedes ejecutar este código en un entorno de JavaScript para ver el resultado obtenido para el ejemplo dado.
